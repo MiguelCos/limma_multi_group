@@ -67,9 +67,16 @@ fit <- eBayes(fit)
 
 output_limma <- topTable(fit, adjust.method = "BH", number = Inf)
 
+output_limma$Protein <- row.names(output_limma)
+
+
 ## Generate output ----
 
 if(!dir.exists("Output")){dir.create("Output")}
+
+write.table(output_limma,
+            file = "Output/tab_output_multigroup_limma.txt",
+            row.names = FALSE, col.names = TRUE)
 
 
 sig_hits <- dplyr::filter(output_limma, 
