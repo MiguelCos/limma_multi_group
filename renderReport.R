@@ -12,8 +12,15 @@ kable(group_by(annot_dat, Group = Group) %>% summarise(N = n()))%>%
 #'
 #'## Number of proteins affected by the grouping variable: `r n_significant`
 #'
+#'
 #'## Boxplots of the top `r n_top_hits` hits after testing 
 #'
 #+ fig.width=11.7, fig.height= 7.1, echo = FALSE, message = FALSE, warning = FALSE
 print(boxplots)
+#'
+#'
+#'
+plotly::ggplotly(volcanoes)
+#'
+#'
 print(sessionInfo())

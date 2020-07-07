@@ -16,9 +16,30 @@ The script would take one expression data file and an annotation file and execut
 2. Place the two input files in the `Data` folder.
 3. Open the `multigroup_limma.R` script. 
 4. Answer the questions on line `8` and line `12` of the script.
-5. Click `Source` in the top right corner of the script.
+5. Define the paired contrasts that you are interested to evaluate after general F-test, by modifiying `contrast.matrix` input at line `60`. (Check below how to set up your contrast matrix)
+6. Click `Source` in the top right corner of the script.
 
 The script will extract the experimental design information from the annotation file and match it to the columns in the expression data file. Then it will perform a general F-test using `limma` to detect which proteins are in general affected by the grouping variable. Using the first group in your annotation file as a baseline.
+
+
+### Modifying your contrast matrix (line `60`)
+
+The contrast matrix would define which groups should be compared against each other.
+
+In line `60` we define the contrast matrix for our comparisons such as this example:
+
+```
+contrast.matrix <- makeContrasts(C-B, B-A, C-A, levels=design)
+```
+
+In this example, we are testing for 3 groups (A, B and C), and are doing all pairwise comparisons between each other.
+
+Following on that, we are defining our contrast matrix by setting `makeContrasts(C-B, B-A, C-A, levels = design)`, which indicates that we want to test C vs B, B vs A and C vs A. 
+
+If you want to test only C vs A, then you need to modify the function input accordingly; such as `makeContrasts(C-A, levels = design)`
+
+Notice that every contrast is defined by `X-Y`, with `X` beign the numerator of the comparison. Every interesting contrast should be separated by a comma `,`. Nothing else on the line `60` should be modified. 
+
 
 ### Output  
 
