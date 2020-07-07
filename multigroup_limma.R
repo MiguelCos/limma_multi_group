@@ -155,7 +155,7 @@ volcanoes <- ggplot(data = tovolc,
                     geom_point(alpha = 0.5) + 
                     geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "red") +
                     facet_wrap(~ Contrast, ncol = 3)+
-                    theme(legend.position = "top")
+                    theme(legend.position = "none")
 
 
 rmarkdown::render(input = here::here("renderReport.R"),
