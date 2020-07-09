@@ -50,6 +50,6 @@ The script will generate an `Output` folder containing:
   - The number of proteins significantly affected by the grouping variable.
   - A set of boxplots showing the mean values of protein abundance for the top protein hits (those with larger values values for the _F statistic_) for each group.
   - Volcano plots for each pairwise comparison tested.
-- A tabular file with the output statistics after `limma` analysis, including the p-values after testing for each protein.
+- A tabular file with the output statistics after general `limma` analysis (general F-test/ANOVA), including the p-values after testing for each protein.
 - A tabular file with the output statistics after `limma` analysis for pair-wise comparisons. This contains a `Contrast` variable for each contrast, and includes log2-FC values.
 
